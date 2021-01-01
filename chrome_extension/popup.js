@@ -1,6 +1,23 @@
 
 
-SERVER_HOSTNAME="localhost"
+// This is the IP of my server.
+// I can tell you why I wrote a IP address here.
+// I have bought one hostname, paying 1 Chinese dollar.
+// But I can't really use it, until I acquire a ICP license.
+// Any VPS hosted in China can't be binded
+// with a hostname until you acquire a ICP license.
+// Right, my VPS is hosted in China.
+// It will take soo long time to obtain a license.
+// 备案好麻烦啊
+// If I use a VPS hosted in Hong Kong or America,
+// my life would be easier.
+// But Ali cloud have a very good promotional activity,
+// Ohhh, a relative large bandwidth + 40 G ssd let me cannot say no
+// 真的很实惠
+// Yes, I bought its service of one year,
+// It cost me 96 Chinese yuan.
+// it's cheap. What is expensive is that I had to write the IP address here.
+SERVER_HOSTNAME="47.103.208.52"
 
 
 function on_click() {
