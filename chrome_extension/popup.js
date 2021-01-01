@@ -60,12 +60,12 @@ function on_data_ready(json) {
         rec.push(rlist)
     }
 
+    bodyDiv = bodyDiv + "<h2>Related Articles</h2>\n";
+    bodyDiv = bodyDiv + `${rec[0]}`;
+    bodyDiv = bodyDiv + "<h2>Similar Articles</h2>\n";
+    bodyDiv = bodyDiv + `${rec[1]}\n`;
+    bodyDiv = bodyDiv + `model latest updated on 2020-04-01`;
 
-    bodyDiv = `<h2>Related Articles</h2>\n\
-    ${rec[0]}\n\
-    <h2>Similar Articles</h2>\n\
-    ${rec[1]}\n\
-    `;
 
      content = document.getElementById("content");
      bodyDiv =bodyDiv;
