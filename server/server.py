@@ -9,7 +9,7 @@ os.sys.path.append("../common")
 
 import CF
 
-PORT_NUMBER = 8080
+PORT_NUMBER = 80
 WIKI_TITLES_DB_FILE = "../data/wiki_titles.db"
 WIKI_LINKS1 = "../data/pages_link_to_this_page_also_link_to.npz"
 WIKI_LINKS2 = "../data/pages_this_page_link_to_also_linked_by.npz"
