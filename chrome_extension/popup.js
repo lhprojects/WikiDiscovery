@@ -2,10 +2,10 @@
 
 // This is the IP of my server.
 // I can tell you why I wrote a IP address here.
-// I have bought one hostname, paying 1 Chinese dollar.
+// I have bought one domain, paying 1 Chinese dollar.
 // But I can't really use it, until I acquire a ICP license.
 // Any VPS hosted in China can't be binded
-// with a hostname until you acquire a ICP license.
+// with a domain until you acquire a ICP license.
 // Right, my VPS is hosted in China.
 // It will take soo long time to obtain a license.
 // 备案好麻烦啊
