@@ -6,7 +6,6 @@ import traceback
 import os
 
 os.sys.path.append("../common")
-os.sys.path.append("../data_process")
 
 import CF
 
