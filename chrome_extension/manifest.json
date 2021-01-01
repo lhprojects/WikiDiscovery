@@ -8,8 +8,7 @@
     "permissions": [
       "tabs",
       "https://en.wikipedia.org/",
-      "http://localhost/",
-      "https://localhost/"
+      "http://47.103.208.52/"
     ],
 
     
