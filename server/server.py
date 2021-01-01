@@ -1,15 +1,24 @@
 from http.server import BaseHTTPRequestHandler,HTTPServer
 from urllib.parse import urlparse, parse_qs
 import json
-import CF
 import sqlite3
 import traceback
+import os
 
+os.sys.path.append("../common")
+os.sys.path.append("../data_process")
+
+import CF
 
 PORT_NUMBER = 8080
-WIKI_TITLES_DB_FILE = "wiki_titles.db"
-itemCFCached=CF.ItemCFCached(pages_link_to_this_page_also_link_to="pages_link_to_this_page_also_link_to.npz",
-                         pages_this_page_link_to_also_linked_by="pages_this_page_link_to_also_linked_by.npz",
+WIKI_TITLES_DB_FILE = "../data/wiki_titles.db"
+WIKI_LINKS1 = "../data/pages_link_to_this_page_also_link_to.npz"
+WIKI_LINKS2 = "../data/pages_this_page_link_to_also_linked_by.npz"
+
+
+
+itemCFCached = CF.ItemCFCached(pages_link_to_this_page_also_link_to=WIKI_LINKS1,
+                         pages_this_page_link_to_also_linked_by=WIKI_LINKS2,
                          titles = None)
 
 class MyHandler(BaseHTTPRequestHandler):
