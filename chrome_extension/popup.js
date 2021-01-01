@@ -60,6 +60,7 @@ function on_data_ready(json) {
         rec.push(rlist)
     }
 
+    bodyDiv= ""
     bodyDiv = bodyDiv + "<h2>Related Articles</h2>\n";
     bodyDiv = bodyDiv + `${rec[0]}`;
     bodyDiv = bodyDiv + "<h2>Similar Articles</h2>\n";
