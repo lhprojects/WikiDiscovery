@@ -97,7 +97,7 @@ function request_data(title) {
         on_request_error();
     }
 
-    const url = "http://" + SERVER_HOSTNAME + ":8080/?article=" + encodeURIComponent(title);
+    const url = "http://" + SERVER_HOSTNAME + ":80/?article=" + encodeURIComponent(title);
     xhr.open("GET", url);
     xhr.send();
 
