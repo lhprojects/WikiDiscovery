@@ -4,6 +4,7 @@ import json
 import sqlite3
 import traceback
 import os
+import sys
 
 os.sys.path.append("../common")
 
@@ -50,6 +51,7 @@ class MyHandler(BaseHTTPRequestHandler):
             
         except Exception as e:
             traceback.print_tb(e.__traceback__)
+            sys.stderr.flush()
             self.send_response(404)
             return
 
@@ -61,6 +63,7 @@ class MyHandler(BaseHTTPRequestHandler):
             self.wfile.write(bs)
         except Exception as e:
             traceback.print_tb(e.__traceback__)
+            sys.stderr.flush()
         
 def get_list(conn, c, r):
     res = []
@@ -76,19 +79,21 @@ def get_list(conn, c, r):
         
 
 def get_links(conn, title):
-    c = conn.cursor()
-    
-    c.execute("select * from page_title_indices where title = ?", (title,))
-    res = c.fetchone()
-    if res is not None:
-        # second coloumn is the index
-        idx = int(res[1])
-        r1 = itemCFCached.pages_link_to_this_page_also_link_to(idx)
-        r2 = itemCFCached.pages_this_page_link_to_also_linked_by(idx)
-        r1 = get_list(conn, c, r1)
-        r2 = get_list(conn, c, r2)
+    try:
+        c = conn.cursor()
+        c.execute("select * from page_title_indices where title = ?", (title,))
+        res = c.fetchone()
+        if res is not None:
+            # second coloumn is the index
+            idx = int(res[1])
+            r1 = itemCFCached.pages_link_to_this_page_also_link_to(idx)
+            r2 = itemCFCached.pages_this_page_link_to_also_linked_by(idx)
+            r1 = get_list(conn, c, r1)
+            r2 = get_list(conn, c, r2)
             
-        return [r1, r2]
+            return [r1, r2]
+    finally:
+        c.close()
 
 def start_server():
 
@@ -99,13 +104,13 @@ def start_server():
         # Create a web server and define the handler to manage the
         # incoming request
         server = HTTPServer(('', PORT_NUMBER), MyHandler)
-        print('Started httpserver on port ' , PORT_NUMBER)
+        print('Started httpserver on port ' , PORT_NUMBER, flush=True)
 
         # Wait forever for incoming http requests
         server.serve_forever()
 
     except KeyboardInterrupt:
-        print ('^C received, shutting down the web server')
+        print ('^C received, shutting down the web server', flush=True)
         server.socket.close()
 
     finally:
