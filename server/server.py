@@ -32,8 +32,13 @@ class MyHandler(BaseHTTPRequestHandler):
         
         try:
             # str
+            print("-----------------------", flush=True)
+            print(self.path, flush=True)
             parse_result = urlparse(self.path)
             
+            if parse_result.path != "/":
+                raise Exception("incorrect path")
+
             query = parse_result.query
             query = parse_qs(query)
             if "article" not in query:
@@ -114,6 +119,7 @@ def start_server():
         server.socket.close()
 
     finally:
+        print("server exit\n", flush=True)
         if conn:
             conn.close()
 
