@@ -1,0 +1,6 @@
+
+# run in background
+# stdout and stderr to server.log
+nohup python server.py > server.log 2>&1  &
+
+

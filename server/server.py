@@ -26,7 +26,12 @@ class MyHandler(BaseHTTPRequestHandler):
         host, port = self.client_address[:2]
         #return socket.getfqdn(host)
         return host
-        
+       
+    def log_message(self, fmt, *args, **kargs):
+        super().log_message(fmt, *args, **kargs)
+        sys.stderr.flush()
+        sys.stdout.flush()
+
     # Handler for the GET requests
     def do_GET(self):
         
