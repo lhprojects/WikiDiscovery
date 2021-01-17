@@ -63,6 +63,7 @@ class MyHandler(BaseHTTPRequestHandler):
             traceback.print_tb(e.__traceback__)
             sys.stderr.flush()
             self.send_response(404)
+            self.end_headers()
             return
 
         try:
